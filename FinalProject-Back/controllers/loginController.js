@@ -12,15 +12,15 @@ const signup = async (req,res) => {
             password: await bcrypt.hash(password, 10)
         };
 
-        await usersModel.create(newUser);
-        res.status(200).send('Usuario creado correctamente');
+        const createdUser =await usersModel.create(newUser);
+        res.status(200).json({user: createdUser, message: 'Usuario creado correctamente'});
         } catch (error) {
             if(error.code === 11000) {
                 return res
                 .status(500)
                 .send({ status: 'failed', error: 'El correo ya existe'});
             }
-            res.status(500).send({ status: 'Failed', error: error.message})
+            res.status(500).json({ status: 'Failed', error: error.message})
         }
     };
 
@@ -47,7 +47,7 @@ const signup = async (req,res) => {
             const tokenRefresh = generateToken(payload, true);
             res.status(200).send({user, token, tokenRefresh});
         } catch (error) {
-            res.status(500).send({ sttus: "failed", error: error.message});
+            res.status(500).send({ status: "failed", error: error.message});
         }
     }
 

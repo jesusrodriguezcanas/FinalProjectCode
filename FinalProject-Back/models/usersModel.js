@@ -20,7 +20,7 @@ const usersSchema = new Schema({
         required: [true, "Contraseña obligatoria"],
     },
     pokemonsTeam: {
-        type: [ObjectId],
+        type: [String],
         default: [],
         ref: "User"
     },

@@ -1,0 +1,109 @@
+/* Estilo global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7; /* Fondo suave */
+  color: #333; /* Color de texto principal */
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Asegura que el body ocupe toda la pantalla */
+  align-items: center; /* Centra el contenido horizontalmente */
+}
+
+/* Header */
+header {
+  background-color: #dd1738;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Main content */
+#root {
+  flex: 1;
+  padding-top: 100px; /* Espacio suficiente para que no se solape con el header */
+  padding-bottom: 70px; /* Espacio para que no se solape con el footer */
+  display: flex;
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+}
+
+/* Footer */
+footer {
+  background-color: #5a5c5e;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.9rem;
+}
+
+/* Estilo adicional para el texto del footer */
+footer p {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Formulario */
+.form-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 320px;
+}
+
+/* General styles for the Pokémon list */
+.pokemon-list {
+  display: flex;
+  flex-direction: column; /* Display each Pokémon in a new row */
+  gap: 15px; /* Add space between each Pokémon card */
+}
+
+/* Style each Pokémon card */
+.pokemon-card {
+  display: flex;
+  flex-direction: row; /* Arrange information horizontally */
+  background-color: #f0f0f0; /* Light grey background */
+  padding: 15px;
+  border-radius: 8px; /* Rounded corners for the card */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for a 3D effect */
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style the information inside each Pokémon card */
+.pokemon-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px; /* Add space between the label and value */
+}
+
+/* Style for the Pokémon labels */
+.pokemon-label {
+  font-weight: bold;
+  color: #333;
+  text-transform: capitalize;
+}
+
+/* Style for the Pokémon values */
+.pokemon-value {
+  color: #555;
+}

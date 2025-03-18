@@ -40,10 +40,10 @@ const addPokemonTeam = async (req,res) => {
   return res.status(400).json({ status: "failed", error: "El equipo ya tiene 6 Pokémon" });
 }
 
-      if (user.pokemonsTeam.includes(idPokemon)) {
+      if (user.pokemonsTeam.includes(pokemon.name)) {
         return res.status(400).json({ status: "failed", error: "El pokemon ya está en tu equipo" });
     }
-    user.pokemonsTeam.push(idPokemon);
+    user.pokemonsTeam.push(pokemon.name);
     await user.save();
 
       res.status(200).send(user);
@@ -58,12 +58,12 @@ const addPokemonTeam = async (req,res) => {
         const {idPokemon} = req.body
       
       const user = await usersModel.findById(idUser);
-      const recipe = await pokemonsModel.findById(idPokemon);
-      if (!user.pokemonsTeam.includes(idPokemon)) {
+      const pokemon = await pokemonsModel.findById(idPokemon);
+      if (!user.pokemonsTeam.includes(pokemon.name)) {
         return res.status(400).json({ status: "failed", error: "El pokemon no está en tu equipo" });
       }
   
-      user.pokemonsTeam.pull(idPokemon);
+      user.pokemonsTeam.pull(pokemon.name);
       await user.save(); 
 
       res.status(200).send(user);
