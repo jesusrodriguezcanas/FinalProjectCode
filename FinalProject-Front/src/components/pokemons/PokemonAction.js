@@ -9,10 +9,12 @@ export const loadPokemon = (pokemons) => {
     }
 }
 
-export const DELETE_POKEMON = 'DELETE_POKEMON';
+export const SHOWMY_POKEMONS = 'SHOWMY_POKEMONS';
 
-export const deletePokemonAction = (idPokemon) => ({
-  type: DELETE_POKEMON,
-  payload: idPokemon
+export const showMyPokemons = (pokemons) => ({
+    type: SHOWMY_POKEMONS,
+    payload: pokemons,
 });
 
+
+//showmy pokemos hace referencia al endpoint getbyid

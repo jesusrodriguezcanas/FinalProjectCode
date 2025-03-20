@@ -34,6 +34,23 @@ const getAllPokemons = async(req,res) => {
       }
     };
 
+  
+    const getPokemonTeam = async (req,res) => {
+      try {
+        const { pokemonsTeam } = req.body;
+        if(!pokemonsTeam || !Array.isArray(pokemonsTeam)) {
+          return res.status(400).json({ error: "No llega un array"});
+        }
+        const pokemons = await pokemonModel.find({
+          '_id': { $in: pokemonsTeam}
+        });
+        res.status(200).json(pokemons)
+      } catch (error) {
+        res.status(500).json({ status: "failed", error: error.message });
+
+      }
+    }
 
 
-  module.exports = { getAllPokemons, getPokemonById, addPokemon}
+
+  module.exports = { getAllPokemons, getPokemonTeam, getPokemonById, addPokemon}

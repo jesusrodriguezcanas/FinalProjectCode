@@ -22,7 +22,7 @@ const PokemonListComponent = () => {
     <div>
       <hr />
       <h2>Aquí podrás ver nuestra lista de Pokemons: </h2>
-      <hr />
+      
      
       <div className='pokemon-list'>
         {Array.isArray(pokemons) && pokemons.length > 0 ? (
@@ -39,6 +39,9 @@ const PokemonListComponent = () => {
               <div className='pokemon-info'>
                 <span className='pokemon-label'>Naturaleza:  </span>
                 <span className="pokemon-value">{p.naturaleza}</span>
+              </div>
+              <div>
+                <button onClick={()=>{}}>Añadir al team</button>
               </div>
             </div>
           ))

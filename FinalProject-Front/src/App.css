@@ -8,12 +8,12 @@
 /* Body */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f7f7f7; /* Fondo suave */
-  color: #333; /* Color de texto principal */
+  background-color: #f7f7f7; 
+  color: #333; 
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Asegura que el body ocupe toda la pantalla */
-  align-items: center; /* Centra el contenido horizontalmente */
+  height: 100vh; 
+  align-items: center; 
 }
 
 /* Header */
@@ -34,11 +34,11 @@ header {
 /* Main content */
 #root {
   flex: 1;
-  padding-top: 100px; /* Espacio suficiente para que no se solape con el header */
-  padding-bottom: 70px; /* Espacio para que no se solape con el footer */
+  padding-top: 100px; 
+  padding-bottom: 70px; 
   display: flex;
-  align-items: center; /* Centrar verticalmente */
-  justify-content: center; /* Centrar horizontalmente */
+  align-items: center;
+  justify-content: center; 
 }
 
 /* Footer */
@@ -72,38 +72,38 @@ footer p {
 /* General styles for the Pokémon list */
 .pokemon-list {
   display: flex;
-  flex-direction: column; /* Display each Pokémon in a new row */
-  gap: 15px; /* Add space between each Pokémon card */
+  flex-direction: column; 
+  gap: 15px; 
+    max-height: 500px;
+    overflow-y: auto;  
+  
+  
 }
 
-/* Style each Pokémon card */
 .pokemon-card {
   display: flex;
-  flex-direction: row; /* Arrange information horizontally */
-  background-color: #f0f0f0; /* Light grey background */
+  flex-direction: row; 
+  background-color: #f0f0f0; 
   padding: 15px;
-  border-radius: 8px; /* Rounded corners for the card */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for a 3D effect */
+  border-radius: 8px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
   align-items: center;
 }
 
-/* Style the information inside each Pokémon card */
 .pokemon-info {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px; /* Add space between the label and value */
+  gap: 10px; 
 }
 
-/* Style for the Pokémon labels */
 .pokemon-label {
   font-weight: bold;
   color: #333;
   text-transform: capitalize;
 }
 
-/* Style for the Pokémon values */
 .pokemon-value {
   color: #555;
 }

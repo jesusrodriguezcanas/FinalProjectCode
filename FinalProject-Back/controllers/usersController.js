@@ -40,10 +40,16 @@ const addPokemonTeam = async (req,res) => {
   return res.status(400).json({ status: "failed", error: "El equipo ya tiene 6 Pokémon" });
 }
 
-      if (user.pokemonsTeam.includes(pokemon.name)) {
-        return res.status(400).json({ status: "failed", error: "El pokemon ya está en tu equipo" });
-    }
-    user.pokemonsTeam.push(pokemon.name);
+if (user.pokemonsTeam.some(p => p.name === pokemon.name)) {
+  return res.status(400).json({ status: "failed", error: "El pokemon ya está en tu equipo" });
+}
+
+    user.pokemonsTeam.push({
+      _id: pokemon._id,
+      name: pokemon.name,
+      tipo: pokemon.tipo,
+      naturaleza: pokemon.naturaleza
+    });
     await user.save();
 
       res.status(200).send(user);
@@ -59,11 +65,11 @@ const addPokemonTeam = async (req,res) => {
       
       const user = await usersModel.findById(idUser);
       const pokemon = await pokemonsModel.findById(idPokemon);
-      if (!user.pokemonsTeam.includes(pokemon.name)) {
+      if (!user.pokemonsTeam.some(p => p._id.toString() === pokemon._id.toString())) {
         return res.status(400).json({ status: "failed", error: "El pokemon no está en tu equipo" });
       }
   
-      user.pokemonsTeam.pull(pokemon.name);
+      user.pokemonsTeam = user.pokemonsTeam.filter(p => p._id.toString() !== pokemon._id.toString());
       await user.save(); 
 
       res.status(200).send(user);

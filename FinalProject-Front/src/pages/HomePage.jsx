@@ -2,56 +2,44 @@ import React, { useState } from 'react'
 import LoginPage from './LoginPage'
 import PokedexPage from './PokedexPage'
 import ContactoPage from './ContactoPage'
+import {useNavigate} from 'react-router-dom'
 
 
 const HomePage = () => {
 
+  const navigate = useNavigate(); // Hook de React Router para la navegación
+
 const [menuOption, setMenuOption] = useState(undefined)
 
 const goPokedex = () => {
-  setMenuOption(1)
-}
+  navigate('/pokedex'); // Redirige a la página de la Pokedex
+};
 
 const goContacto = () =>{
-  setMenuOption(2)
+  navigate('/contacto');
 }
 
 const goLogin =  () => {
- setMenuOption(0)
+  navigate('/login');
 }
 
 const goHome = () => {
-  setMenuOption(undefined)
+  navigate('/');
 }
 
    return (
     <div>
-      {menuOption === undefined && (
-        <div>
-        <h2>Bienvenido a Pokemon Battle</h2>
-        <p>¿Quieres registrarte y armar tu propio equipo?</p>
-        </div>
+    <h2>Bienvenido a Pokemon Battle</h2>
+    <p>¿Quieres registrarte y armar tu propio equipo?</p>
 
-      )}
-      <div>
-      {menuOption === undefined && (
-        <div>
-          <button onClick={goLogin}>Registro</button>
-          <button onClick={goPokedex}>Ver Pokedex</button>
-          <button onClick={goContacto}>Pag Contacto</button>
-        </div>
-      )}
-      </div>
-      <div>
-      {menuOption === 0 && <LoginPage />} {/* Si menuOption es 0, muestra LoginPage */}
-        {menuOption === 1 && (
-         <PokedexPage goHome={goHome}/>
-        )}
-        {menuOption === 2 && (
-          <ContactoPage/>
-        )}
-      </div>
+    <div>
+      <button onClick={goLogin}>Registro</button>
+      <button onClick={goPokedex}>Ver Pokedex</button>
+      <button onClick={goContacto}>Pag Contacto</button>
     </div>
+
+    {/* Aquí asumes que las rutas están definidas en App.js con React Router */}
+  </div>
   )
 }
 
