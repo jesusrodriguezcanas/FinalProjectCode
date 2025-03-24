@@ -2,18 +2,22 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+    <link rel="stylesheet" href="./src/App.css">
   </head>
   <body>
     <header>
-      <h1>Pokemon Team</h1>
+      <div class="container-header">
+        <img class="logo" src="/logopk.png" alt="Logo de una pokeball">
+        <h1 class="first-tittle">Pokemon Team</h1>
+      </div>
     </header>
+    <div class="fondo-pk">
+      <img src="/fondo.png" alt="Imagen de fondo">
+    </div>
     
-    <footer>
-      <p>&copy; 2025 Pokemon Team Inc. Todos los derechos reservados.</p>
-    </footer>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

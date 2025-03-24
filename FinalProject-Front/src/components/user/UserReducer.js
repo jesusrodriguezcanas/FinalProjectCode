@@ -11,7 +11,7 @@ const usersReducer = (state = initialState, action) => {
         return {
             ...state, 
             user: action.payload,
-            pokemons: action.payload.pokemonsTeam || []
+            pokemons: action.payload?.pokemonsTeam || []
         };
     } else if (action.type === DELETE_POKEMON) {
         return {
@@ -29,7 +29,10 @@ const usersReducer = (state = initialState, action) => {
     } else if (action.type === ADDTEAM_POKEMON) {
         return {
           ...state,
-          pokemons: [...state.pokemons, action.payload], // Agrega el nuevo Pokémon al final del array
+          user: {
+            ...state.user,
+              pokemonsTeam: [...state.user.pokemonsTeam, action.payload], // Agrega el nuevo Pokémon al final del array
+          }
         };
     } else {
         return state;

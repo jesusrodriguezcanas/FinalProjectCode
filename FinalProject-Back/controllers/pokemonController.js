@@ -13,7 +13,6 @@ const addPokemon = async (req,res) => {
 
 const getAllPokemons = async(req,res) => {
     try{
-      const allPokemons = req.params.allPokemons;
       const pokemons = await pokemonModel.find()
       res.status(200).send(pokemons);
     } catch (error) {

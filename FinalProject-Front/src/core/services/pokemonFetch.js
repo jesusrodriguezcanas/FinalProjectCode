@@ -1,6 +1,6 @@
 
 
-export const getPokemons = async (name, tipo, naturaleza) => {
+export const getPokemons = async () => {
     const res = await fetch('http://localhost:3000/pokemon/pokemon', {
             method: 'GET',
             headers: {
@@ -13,7 +13,8 @@ export const getPokemons = async (name, tipo, naturaleza) => {
             const pokemons = result.map(pokemon => ({
                 name: pokemon.name,
                 tipo: pokemon.tipo,
-                naturaleza: pokemon.naturaleza
+                naturaleza: pokemon.naturaleza,
+                _id:pokemon._id
               }));
     
             return pokemons;

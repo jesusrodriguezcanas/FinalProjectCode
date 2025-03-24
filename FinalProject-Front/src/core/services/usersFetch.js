@@ -16,50 +16,49 @@ export const doLoginFetch = async (email, password) => {
     return data
 }
 
-export const createUser = async (newUser) => {
+export const createUser = async (registerInfo) => {
     const res = await fetch('http://localhost:3000/signup', {
         method: 'POST',
         headers: {
-             'content-type': 'Application/json'
+             'Content-type': 'application/json'
         },
         body: JSON.stringify(
-            newUser
+            registerInfo
         )
     })
-    const result = await res.json()
-    return result.user
+    const data = await res.json()
+    return data
 }
 
 export const getUserById = async (idUser) => {
+    const token = localStorage.getItem('token'); 
     const res = await fetch(`http://localhost:3000/users/${idUser}`, {
         method: 'GET',
         headers: {
-            'Authorization': `Bearer ${token}`, // Añade el token en las cabeceras
             'Content-Type': 'application/json' 
         }
         });
-    const result = await res.json()
-    return result.user
+    const data = await res.json()
+    return data
 }
 
 //add + del pokemon team + edit user
-//getuserbyid hace referencia al LOADPERFIL
-export const addPokemonTeam = async (idUser, pokemon, token) => {
+export const addPokemonTeam = async (idUser, idPokemon, authToken) => {
+
     const res = await fetch(`http://localhost:3000/users/${idUser}/team`, {
         method: 'POST',
         headers:{
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'auth-token': authToken
         },
-        body: JSON.stringify({pokemon})
+        body: JSON.stringify({idPokemon})
     })
 
-    const result = await res.json();
-    return result.user
+    const data = await res.json();
+    return data;
 }
 
 export const delPokemonTeam = async (idUser, idPokemon, authToken) => {
-   // const authToken = localStorage.getItem('token');
     const res = await fetch(`http://localhost:3000/users/${idUser}/team`, {
         method: 'DELETE',
         headers:{
@@ -75,14 +74,14 @@ export const delPokemonTeam = async (idUser, idPokemon, authToken) => {
     return data
 }
 
-export const editUserPerfil = async (idUser, updatedData, token) => {
+export const editUserPerfil = async (idUser, updatedData, authToken) => {
     const res = await fetch(`http://localhost:3000/users/${idUser}`, {
         method:'PATCH',
         headers:{
-            'Authorization': `Bearer ${token}`,
+            'auth-token': authToken,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({updatedData})
+        body: JSON.stringify(updatedData)
 })
 
 const result = await res.json();
