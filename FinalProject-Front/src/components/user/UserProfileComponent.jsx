@@ -37,11 +37,11 @@ const goPokedex = () => {
 
 const deletePokemon = async (idPokemon) => {
   const authToken = localStorage.getItem('token');  // Recuperas el token de localStorage
-  console.log('Token recuperado:', authToken);  // Verifica si se obtiene correctamente
+  console.log('Token recuperado:', authToken);  
 
   if (user && user._id && authToken) {
     try {
-      const updatedUser = await delPokemonTeam(user._id, idPokemon, authToken);  // Llamada al backend con el token
+      const updatedUser = await delPokemonTeam(user._id, idPokemon, authToken);  
       console.log('Usuario actualizado:', updatedUser);  // Verifica que el backend devuelva el usuario actualizado
       dispatch(deletePokemonAction(idPokemon));
       dispatch(editPerfilAction(updatedUser)) 

@@ -25,7 +25,7 @@ const addPokemon = async (pokemon) => {
   console.log('Token recuperado:', authToken); 
 
   if (user && user._id && authToken) {
-    console.log('Número de Pokémon en el equipo:', user.pokemonsTeam.length); // Depurar longitud del equipo
+    console.log('Número de Pokémon en el equipo:', user.pokemonsTeam.length); 
 
     if(user.pokemonsTeam.length >= 6) {
       alert('¡Ya tienes 6 Pokemons en tu equipo! No puedes añadir más.');

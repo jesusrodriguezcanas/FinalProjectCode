@@ -8,7 +8,7 @@
 /* Body */
 .fondo-pk {
   padding-top: 80px;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
@@ -17,7 +17,7 @@
 }
 
 .fondo-pk img {
-  display: flex;
+  display: block;
   justify-content: center;
   width: 100%; 
   height: 90%; 
@@ -35,6 +35,7 @@ body {
   background-color: transparent;
   margin: 0;
   padding: 0;
+  overflow-x: auto;
 }
 
 /* Header */
@@ -612,4 +613,67 @@ body.no-background .fondo-pk {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
+
+
+/* intento de responsive */
+@media (max-width: 430px) {
+
+  body {
+    overflow-x: auto;
+    width: 200%;
+  }
+
+  .fondo-pk img{
+    width: 200%;
+  }
+
+  .container-header{
+    min-height: 40vh;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+    
+  }
+
+  .home-tittle{
+    font-size: 2rem;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .home-description{
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+
+  .home-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .home-container{
+    padding: 10px 20px;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .pokemon-list{
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .pokemon-card{
+    gap: 3rem;
+  }
+}
+
+
 

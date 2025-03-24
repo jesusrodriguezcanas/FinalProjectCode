@@ -18,9 +18,6 @@ const goLogin =  () => {
   navigate('/login');
 }
 
-const goHome = () => {
-  navigate('/');
-}
 
    return (
     <div className="home-container">

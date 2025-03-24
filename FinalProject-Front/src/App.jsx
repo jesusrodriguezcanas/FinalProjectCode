@@ -21,8 +21,6 @@ function App() {
           <Route path="/pokedex" element={<PokedexPage />} />
           <Route path="/contacto" element={<ContactoPage />} />
           <Route path="/perfil" element={<UserProfileComponent />} />
-
-          {/* Puedes agregar más rutas aquí según sea necesario */}
         </Routes>
       </Router>
     </Provider>

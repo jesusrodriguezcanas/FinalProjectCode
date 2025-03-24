@@ -1,5 +1,4 @@
-// dejo pendiente si crear este router por si añado
-//rol admin o solo usuarios normales
+
 const express = require('express');
 const {getUserById, editUser, addPokemonTeam, delPokemonTeam} = require('../controllers/usersController');
 const { verifyToken } = require('../middlewares/auth');

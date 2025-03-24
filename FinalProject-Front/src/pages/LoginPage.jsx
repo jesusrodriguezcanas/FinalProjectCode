@@ -52,7 +52,6 @@ const doRegister = async () => {
     localStorage.setItem('token', userInfo.token);
     localStorage.setItem('user', JSON.stringify(userInfo.user))
     dispatch(loadPerfil(userInfo.user));
-    // setUser(userInfo)
     navigate('/perfil');
   } else {
     const errorMessage = userInfo?.error 

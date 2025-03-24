@@ -16,7 +16,7 @@ const goProfile = () => {
   navigate('/perfil')
 }
 
-const user = JSON.parse(localStorage.getItem('user')); // Suponiendo que guardaste el usuario en localStorage
+const user = JSON.parse(localStorage.getItem('user')); // user localstorage
 
 
   return (
